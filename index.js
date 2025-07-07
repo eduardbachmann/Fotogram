@@ -1,6 +1,6 @@
 const fileName = [
-  'antelope-4840335_1280',
   'avenue-815297_1280',
+  'antelope-4840335_1280',
   'bachalpsee-7572681_1280',
   'desert-2646209_1280',
   'field-9295186_1280',
