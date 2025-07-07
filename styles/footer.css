@@ -1,0 +1,29 @@
+.devakademie-logo-and-text-div {
+  display: flex;
+  align-items: center;
+  
+  text-wrap: wrap;
+}
+
+.devakademie-logo {
+  height: 49px;
+  margin-right: 15px;
+}
+
+.logo-text {
+  line-height: 28px;
+  color: rgb(255, 255, 255);
+  font-family: nunito;
+  font-size: 25px;
+  font-weight: bold;
+  height: 53px;
+  width: 120px;
+}
+
+.copyright-name {
+  color: grey;
+  font-size: 15px;
+  font-family: nunito;
+  margin-top: 20px;
+}
+

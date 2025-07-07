@@ -1,0 +1,146 @@
+.div-main-section {
+  flex: 1;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1-and-photo-container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;    
+  gap: 10px; 
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.photo {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #124658;
+  transition: 0.2s;
+  cursor: pointer;
+  z-index: 2;
+}
+.photo:hover {
+  border-color: #289dc4
+}
+
+.popup-window-div {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  max-height: 450px;
+  max-width: 400px;
+  background-color: #082029;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-family: nunito;
+  z-index: 3;
+}
+
+.popup-img-name-and-cross {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.popup-img-name {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-weight: 900;
+  margin-left: 25px;
+}
+
+.close-img {
+  height: 16px;
+  color: white;
+  margin-top: 20px;
+  margin-right: 25px;
+  font-family: nonito;
+  cursor: pointer;
+}
+
+.popup-img-div {
+  height: 230px;
+  width: 350px;
+  background-color: #05171E;
+}
+
+.dialog-img {
+  height: 230px;
+  width: 350px;
+  object-fit: contain;
+}
+
+@media (max-width: 420px) {
+  .popup-img-div {
+    height: 180px;
+    width: 250px;
+  }
+}
+
+.arrow-buttons-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.arrow-button {
+  height: 50px;
+  width: 50px;
+  background-color: #05171E;
+  border: none;
+  color: red;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.text-between-arrow-buttons {
+  color: white;
+  margin-left:50px;
+  margin-right: 50px;
+  font-weight: bold;
+}
+
+@media (max-width: 620px) {
+  .photo-container {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .popup-window-div {
+    height: 400px;
+    width: 300px;
+  }
+  .photo-container {
+    padding-top: 30px;
+  }
+}
+
+.overlay-div {
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}

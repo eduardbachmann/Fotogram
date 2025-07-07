@@ -1,0 +1,44 @@
+header {
+  height: 100px;
+  width: 100%
+}
+
+.content-limitation-1920px {
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@media (max-width: 620px) {
+  .content-limitation-1920px {
+    padding-left: 0px;
+  }
+}
+
+.fotogram-logo {
+  height: 50px;
+}
+
+.header-left-section {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 1920px;
+}
+
+@media (max-width: 620px) {
+  .header-left-section {
+    justify-content: center;
+  }
+
+  .fotogram-logo {
+    padding-left: 0px;
+  }
+}
+
