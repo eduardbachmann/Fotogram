@@ -16,11 +16,11 @@ fileName.forEach((file, index) => {
   const imgId = `img-${index + 1}`;
   const imgElement = document.getElementById(imgId);
   imgElement.addEventListener('click', function () {
-    selectImage(imgId, file);
+    selectImage(file);
   });
 });
 
-function selectImage (iD, file) {
+function selectImage (file) {
 
   const popUpElement = document.querySelector('.popup-container');
   popUpElement.innerHTML = `
