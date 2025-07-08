@@ -67,10 +67,11 @@ function selectImage (arrayValue, index) {
     
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
-    `
+    `;
     
     document.querySelector('.popup-top-left-section').innerHTML = `
-    <div class="popup-img-name">${fileName[index]}</div>`
+    <div class="popup-img-name">${fileName[index]}</div>
+    `;
 
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
