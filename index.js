@@ -12,25 +12,29 @@ const fileName = [
   'water-6579313_1280',
 ]
 
-fileName.forEach((indexValue, index) => {
+fileName.forEach((value, index) => {
   const imgId = `img-${index + 1}`;
   const imgElement = document.getElementById(imgId);
   imgElement.addEventListener('click', function () {
-    selectImage(indexValue, index);
+    selectImage(value, index);
   });
 });
 
-function selectImage (file, index) { 
-  
+function selectImage (arrayValue, index) { 
+
   const popUpElement = document.querySelector('.popup-container');
   popUpElement.innerHTML = `
   <div class="popup-window-div">
     <div class="popup-img-name-and-cross">
-      <div class="popup-img-name">${file}</div>
-      <div class="close-img" id="close-img">⨉</div>
+      <div class="popup-top-left-section">
+        <div class="popup-img-name">${arrayValue}</div>
+      </div>
+      <div class="popup-top-right-section">
+        <div class="close-img" id="close-img">⨉</div>
+      </div>
     </div>
     <div class="popup-img-div">
-      <img class="dialog-img"src="assets/img/photos/${file}.jpg">
+      <img class="dialog-img"src="assets/img/photos/${arrayValue}.jpg">
     </div>
     <div class="arrow-buttons-div">
       <button class="left-arrow-button"><</button>
@@ -39,39 +43,40 @@ function selectImage (file, index) {
     </div>
   </div>
   `;
-
+  
   const leftArrowButton = document.querySelector('.left-arrow-button')
   leftArrowButton.addEventListener('click', function() {
     
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
-    `
+    `;
     
-    document.querySelector('.popup-img-name-and-cross').innerHTML = `
+    document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
-    <div class="close-img" id="close-img">⨉</div>
-    `
+    `;
+
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
-    `
-  })
-
+    `;
+    
+  });
+  
+  
   const rightArrowButton = document.querySelector('.right-arrow-button')
   rightArrowButton.addEventListener('click', function() {
     
     document.querySelector('.popup-img-div').innerHTML = `
-    <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
+    <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `
     
-    document.querySelector('.popup-img-name-and-cross').innerHTML = `
-    <div class="popup-img-name">${fileName[index]}</div>
-    <div class="close-img" id="close-img">⨉</div>
-    `
+    document.querySelector('.popup-top-left-section').innerHTML = `
+    <div class="popup-img-name">${fileName[index]}</div>`
+
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
-    `
-  })
-
+    `;
+    
+  });
   const overlayElement = document.querySelector('.overlay-div');
   const crossElement = document.querySelector('.close-img');
   
@@ -86,3 +91,5 @@ function selectImage (file, index) {
     overlayElement.innerHTML = '';
   });
 }
+
+
