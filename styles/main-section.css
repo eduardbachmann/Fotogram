@@ -103,7 +103,8 @@
   margin-top: 50px;
 }
 
-.arrow-button {
+.left-arrow-button,
+.right-arrow-button {
   height: 50px;
   width: 50px;
   background-color: #05171E;

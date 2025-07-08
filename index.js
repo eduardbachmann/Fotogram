@@ -12,45 +12,77 @@ const fileName = [
   'water-6579313_1280',
 ]
 
-fileName.forEach((file, index) => {
+fileName.forEach((indexValue, index) => {
   const imgId = `img-${index + 1}`;
   const imgElement = document.getElementById(imgId);
   imgElement.addEventListener('click', function () {
-    selectImage(file);
+    selectImage(indexValue, index);
   });
 });
 
-function selectImage (file) {
-
+function selectImage (file, index) { 
+  
   const popUpElement = document.querySelector('.popup-container');
   popUpElement.innerHTML = `
-    <div class="popup-window-div">
-      <div class="popup-img-name-and-cross">
-        <div class="popup-img-name">${file}</div>
-        <div class="close-img" id="close-img">⨉</div>
-      </div>
-      <div class="popup-img-div">
-        <img class="dialog-img"src="assets/img/photos/${file}.jpg">
-      </div>
-      <div class="arrow-buttons-div">
-        <button class="arrow-button"><</button>
-        <div class="text-between-arrow-buttons">1/2</div>
-        <button class="arrow-button">></button>
-      </div>
+  <div class="popup-window-div">
+    <div class="popup-img-name-and-cross">
+      <div class="popup-img-name">${file}</div>
+      <div class="close-img" id="close-img">⨉</div>
     </div>
-    `;
+    <div class="popup-img-div">
+      <img class="dialog-img"src="assets/img/photos/${file}.jpg">
+    </div>
+    <div class="arrow-buttons-div">
+      <button class="left-arrow-button"><</button>
+      <div class="text-between-arrow-buttons">${index + 1}/11</div>
+      <button class="right-arrow-button">></button>
+    </div>
+  </div>
+  `;
 
-    const overlayElement = document.querySelector('.overlay-div');
-    const crossElement = document.querySelector('.close-img');
+  const leftArrowButton = document.querySelector('.left-arrow-button')
+  leftArrowButton.addEventListener('click', function() {
     
-    overlayElement.innerHTML = `<div class="overlay"></div>`;
-    overlayElement.addEventListener('click', function() {
-      popUpElement.innerHTML = '';
-      overlayElement.innerHTML = '';
-    });
+    document.querySelector('.popup-img-div').innerHTML = `
+    <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
+    `
+    
+    document.querySelector('.popup-img-name-and-cross').innerHTML = `
+    <div class="popup-img-name">${fileName[index]}</div>
+    <div class="close-img" id="close-img">⨉</div>
+    `
+    document.querySelector('.text-between-arrow-buttons').innerHTML = `
+    <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
+    `
+  })
 
-    crossElement.addEventListener('click', function() {
-      popUpElement.innerHTML = '';
-      overlayElement.innerHTML = '';
-    });
+  const rightArrowButton = document.querySelector('.right-arrow-button')
+  rightArrowButton.addEventListener('click', function() {
+    
+    document.querySelector('.popup-img-div').innerHTML = `
+    <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
+    `
+    
+    document.querySelector('.popup-img-name-and-cross').innerHTML = `
+    <div class="popup-img-name">${fileName[index]}</div>
+    <div class="close-img" id="close-img">⨉</div>
+    `
+    document.querySelector('.text-between-arrow-buttons').innerHTML = `
+    <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
+    `
+  })
+
+  const overlayElement = document.querySelector('.overlay-div');
+  const crossElement = document.querySelector('.close-img');
+  
+  overlayElement.innerHTML = `<div class="overlay"></div>`;
+  overlayElement.addEventListener('click', function() {
+    popUpElement.innerHTML = '';
+    overlayElement.innerHTML = '';
+  });
+
+  crossElement.addEventListener('click', function() {
+    popUpElement.innerHTML = '';
+    overlayElement.innerHTML = '';
+  });
 }
