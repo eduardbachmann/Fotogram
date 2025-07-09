@@ -44,13 +44,12 @@ function selectImage (arrayValue, index) {
   
   const leftArrowButton = document.querySelector('.left-arrow-button')
   leftArrowButton.addEventListener('click', function() {
-    if (index === 0)
-      index = 11
+    
+    if (index === 0) {index = 11}
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `;
     
-    console.log(index)
     document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
     `;
@@ -65,16 +64,10 @@ function selectImage (arrayValue, index) {
   const rightArrowButton = document.querySelector('.right-arrow-button')
   rightArrowButton.addEventListener('click', function() {
     
-    if (index === fileName.length -1) {
-      index = 1
-      document.querySelector('.popup-img-div').innerHTML = `
-      <img class="dialog-img"src="assets/img/photos/${fileName[index = 0]}.jpg">
-      `;
-    } else {
-      document.querySelector('.popup-img-div').innerHTML = `
-      <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
-      `;
-    }
+    if (index === fileName.length -1) {index = -1}
+    document.querySelector('.popup-img-div').innerHTML = `
+    <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
+    `;
       
     document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
