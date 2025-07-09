@@ -29,9 +29,7 @@ function selectImage (arrayValue, index) {
       <div class="popup-top-left-section">
         <div class="popup-img-name">${arrayValue}</div>
       </div>
-      <div class="popup-top-right-section">
-        <div class="close-img" id="close-img">⨉</div>
-      </div>
+      <div class="close-img" id="close-img">⨉</div>
     </div>
     <div class="popup-img-div">
       <img class="dialog-img"src="assets/img/photos/${arrayValue}.jpg">
@@ -46,15 +44,17 @@ function selectImage (arrayValue, index) {
   
   const leftArrowButton = document.querySelector('.left-arrow-button')
   leftArrowButton.addEventListener('click', function() {
-    
+    if (index === 0)
+      index = 11
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `;
     
+    console.log(index)
     document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
     `;
-
+    
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
     `;
@@ -65,19 +65,27 @@ function selectImage (arrayValue, index) {
   const rightArrowButton = document.querySelector('.right-arrow-button')
   rightArrowButton.addEventListener('click', function() {
     
-    document.querySelector('.popup-img-div').innerHTML = `
-    <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
-    `;
-    
+    if (index === fileName.length -1) {
+      index = 1
+      document.querySelector('.popup-img-div').innerHTML = `
+      <img class="dialog-img"src="assets/img/photos/${fileName[index = 0]}.jpg">
+      `;
+    } else {
+      document.querySelector('.popup-img-div').innerHTML = `
+      <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
+      `;
+    }
+      
     document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
     `;
-
+    
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
     `;
     
   });
+
   const overlayElement = document.querySelector('.overlay-div');
   const crossElement = document.querySelector('.close-img');
   
@@ -92,5 +100,3 @@ function selectImage (arrayValue, index) {
     overlayElement.innerHTML = '';
   });
 }
-
-
