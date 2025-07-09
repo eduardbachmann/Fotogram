@@ -21,7 +21,6 @@ fileName.forEach((value, index) => {
 });
 
 function selectImage (arrayValue, index) { 
-
   const popUpElement = document.querySelector('.popup-container');
   popUpElement.innerHTML = `
   <div class="popup-window-div">
@@ -44,26 +43,20 @@ function selectImage (arrayValue, index) {
   
   const leftArrowButton = document.querySelector('.left-arrow-button');
   leftArrowButton.addEventListener('click', function() {
-    
     if (index === 0) {index = 11}
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `;
     renderImgAndCount();
-    
   });
-  
   
   const rightArrowButton = document.querySelector('.right-arrow-button');
   rightArrowButton.addEventListener('click', function() {
-    
     if (index === fileName.length -1) {index = -1}
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
     `;
     renderImgAndCount();
-    
-    
   });
 
   function renderImgAndCount() {
@@ -78,15 +71,11 @@ function selectImage (arrayValue, index) {
 
   const overlayElement = document.querySelector('.overlay-div');
   const crossElement = document.querySelector('.close-img');
+  overlayElement.addEventListener('click', closePopup);
+  crossElement.addEventListener('click', closePopup);
   
-  overlayElement.innerHTML = `<div class="overlay"></div>`;
-  overlayElement.addEventListener('click', function() {
+  function closePopup() {
     popUpElement.innerHTML = '';
     overlayElement.innerHTML = '';
-  });
-
-  crossElement.addEventListener('click', function() {
-    popUpElement.innerHTML = '';
-    overlayElement.innerHTML = '';
-  });
+  };
 };
