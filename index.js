@@ -42,33 +42,31 @@ function selectImage (arrayValue, index) {
   </div>
   `;
   
-  const leftArrowButton = document.querySelector('.left-arrow-button')
+  const leftArrowButton = document.querySelector('.left-arrow-button');
   leftArrowButton.addEventListener('click', function() {
     
     if (index === 0) {index = 11}
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `;
-    
-    document.querySelector('.popup-top-left-section').innerHTML = `
-    <div class="popup-img-name">${fileName[index]}</div>
-    `;
-    
-    document.querySelector('.text-between-arrow-buttons').innerHTML = `
-    <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
-    `;
+    renderImgAndCount();
     
   });
   
   
-  const rightArrowButton = document.querySelector('.right-arrow-button')
+  const rightArrowButton = document.querySelector('.right-arrow-button');
   rightArrowButton.addEventListener('click', function() {
     
     if (index === fileName.length -1) {index = -1}
     document.querySelector('.popup-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
     `;
-      
+    renderImgAndCount();
+    
+    
+  });
+
+  function renderImgAndCount() {
     document.querySelector('.popup-top-left-section').innerHTML = `
     <div class="popup-img-name">${fileName[index]}</div>
     `;
@@ -76,8 +74,7 @@ function selectImage (arrayValue, index) {
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
     <div class="text-between-arrow-buttons">${[index + 1]}/11</div>
     `;
-    
-  });
+  };
 
   const overlayElement = document.querySelector('.overlay-div');
   const crossElement = document.querySelector('.close-img');
@@ -92,4 +89,4 @@ function selectImage (arrayValue, index) {
     popUpElement.innerHTML = '';
     overlayElement.innerHTML = '';
   });
-}
+};
