@@ -1,3 +1,13 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #082029;
+  min-height: 150px;
+  width: 100%;
+}
+
 .devakademie-logo-and-text-div {
   display: flex;
   align-items: center;
@@ -25,4 +35,3 @@
   font-family: nunito;
   margin-top: 20px;
 }
-

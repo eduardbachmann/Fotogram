@@ -1,6 +1,7 @@
 header {
+  background-color: #082029;
   height: 100px;
-  width: 100%
+  width: 100%;
 }
 
 .content-limitation-1920px {
@@ -41,4 +42,3 @@ header {
     padding-left: 0px;
   }
 }
-
