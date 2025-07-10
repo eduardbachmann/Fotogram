@@ -1,3 +1,17 @@
+document.querySelector('.photo-container').innerHTML = `
+  <img class="photo" id="img-1" src="assets/img/photos/avenue-815297_1280.jpg">
+  <img class="photo" id="img-2"src="assets/img/photos/antelope-4840335_1280.jpg">
+  <img class="photo" id="img-3"src="assets/img/photos/bachalpsee-7572681_1280.jpg">
+  <img class="photo" id="img-4"src="assets/img/photos/desert-2646209_1280.jpg">
+  <img class="photo" id="img-5"src="assets/img/photos/field-9295186_1280.jpg">
+  <img class="photo" id="img-6"src="assets/img/photos/glacier-7187291_1280.jpg">
+  <img class="photo" id="img-7"src="assets/img/photos/mountain-6815304_1280.jpg">
+  <img class="photo" id="img-8"src="assets/img/photos/rain-2573488_1280.jpg">
+  <img class="photo" id="img-9"src="assets/img/photos/sunset-8516639_1280.jpg">
+  <img class="photo" id="img-10"src="assets/img/photos/trail-5726987_1280.jpg">
+  <img class="photo" id="img-11"src="assets/img/photos/water-6579313_1280.jpg">
+`;
+
 const fileName = [
   'avenue-815297_1280',
   'antelope-4840335_1280',
@@ -10,15 +24,16 @@ const fileName = [
   'sunset-8516639_1280',
   'trail-5726987_1280',
   'water-6579313_1280',
-]
+];
 
-fileName.forEach((value, index) => {
-  const imgId = `img-${index + 1}`;
+for (let i = 0; i < fileName.length; i++) {
+  const imgFile = fileName[i];
+  const imgId = `img-${i + 1}`;
   const imgElement = document.getElementById(imgId);
   imgElement.addEventListener('click', function () {
-    selectImage(value, index);
+    selectImage(imgFile, i);
   });
-});
+};
 
 function selectImage (arrayValue, index) { 
   const popUpElement = document.querySelector('.dialog-container');
