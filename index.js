@@ -21,16 +21,16 @@ fileName.forEach((value, index) => {
 });
 
 function selectImage (arrayValue, index) { 
-  const popUpElement = document.querySelector('.popup-container');
+  const popUpElement = document.querySelector('.dialog-container');
   popUpElement.innerHTML = `
-  <div class="popup-window-div">
-    <div class="popup-img-name-and-cross">
-      <div class="popup-top-left-section">
-        <div class="popup-img-name">${arrayValue}</div>
+  <div class="dialog-window-div">
+    <div class="dialog-img-name-and-cross">
+      <div class="dialog-top-left-section">
+        <div class="dialog-img-name">${arrayValue}</div>
       </div>
       <div class="close-img" id="close-img">⨉</div>
     </div>
-    <div class="popup-img-div">
+    <div class="dialog-img-div">
       <img class="dialog-img"src="assets/img/photos/${arrayValue}.jpg">
     </div>
     <div class="arrow-buttons-div">
@@ -44,7 +44,7 @@ function selectImage (arrayValue, index) {
   const leftArrowButton = document.querySelector('.left-arrow-button');
   leftArrowButton.addEventListener('click', function() {
     if (index === 0) {index = 11}
-    document.querySelector('.popup-img-div').innerHTML = `
+    document.querySelector('.dialog-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[--index]}.jpg">
     `;
     renderImgAndCount();
@@ -53,15 +53,15 @@ function selectImage (arrayValue, index) {
   const rightArrowButton = document.querySelector('.right-arrow-button');
   rightArrowButton.addEventListener('click', function() {
     if (index === fileName.length -1) {index = -1}
-    document.querySelector('.popup-img-div').innerHTML = `
+    document.querySelector('.dialog-img-div').innerHTML = `
     <img class="dialog-img"src="assets/img/photos/${fileName[++index]}.jpg">
     `;
     renderImgAndCount();
   });
 
   function renderImgAndCount() {
-    document.querySelector('.popup-top-left-section').innerHTML = `
-    <div class="popup-img-name">${fileName[index]}</div>
+    document.querySelector('.dialog-top-left-section').innerHTML = `
+    <div class="dialog-img-name">${fileName[index]}</div>
     `;
     
     document.querySelector('.text-between-arrow-buttons').innerHTML = `
