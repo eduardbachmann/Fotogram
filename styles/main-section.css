@@ -1,4 +1,5 @@
 .div-main-section {
+  position: relative;
   flex: 1;
   width: 100%;
   max-width: 1920px;
@@ -39,17 +40,18 @@
 }
 
 .popup-window-div {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  margin: auto;
-  max-height: 450px;
-  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  max-width: 600px;
   background-color: #082029;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
+  justify-content: space-between;
   font-family: nunito;
   z-index: 3;
 }
@@ -58,12 +60,12 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .popup-img-name {
   color: white;
-  margin-top: 20px;
-  margin-bottom: 50px;
   font-weight: 900;
   margin-left: 25px;
 }
@@ -71,28 +73,15 @@
 .close-img {
   height: 16px;
   color: white;
-  margin-top: 20px;
   margin-right: 25px;
   font-family: nonito;
   cursor: pointer;
 }
 
-.popup-img-div {
-  height: 230px;
-  width: 350px;
-}
-
 .dialog-img {
-  height: 230px;
-  width: 350px;
+  height: auto;
+  max-width: 600px;
   object-fit: contain;
-}
-
-@media (max-width: 420px) {
-  .popup-img-div {
-    height: 180px;
-    width: 250px;
-  }
 }
 
 .arrow-buttons-div {
@@ -100,7 +89,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 50px;
+  max-height: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .left-arrow-button,
@@ -116,25 +107,47 @@
 }
 
 .text-between-arrow-buttons {
+  display: flex;
+  justify-content: center;
   color: white;
-  margin-left:50px;
-  margin-right: 50px;
   font-weight: bold;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 50px;
 }
 
 @media (max-width: 620px) {
   .photo-container {
     padding-top: 100px;
   }
+
+  .popup-window-div {
+    height: 450px;
+    max-width: 400px;
+  }
+
+  .dialog-img {
+    height: auto;
+    max-width: 400px;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 420px) {
+  .photo-container {
+    padding-top: 30px;
+  }
+  
   .popup-window-div {
+    position: fixed;
     height: 400px;
     width: 300px;
   }
-  .photo-container {
-    padding-top: 30px;
+  
+  .dialog-img {
+    height: auto;
+    max-width: 300px;
+    object-fit: contain;
   }
 }
 
