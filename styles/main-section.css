@@ -79,9 +79,14 @@
   cursor: pointer;
 }
 
+.dialog-img-div {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .dialog-img {
   height: auto;
-  max-width: 600px;
+  max-width: 550px;
   object-fit: contain;
 }
 
@@ -124,7 +129,7 @@
   z-index: 1;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 709px) {
   .photo-container {
     padding-top: 100px;
   }
@@ -134,9 +139,13 @@
     max-width: 400px;
   }
 
+  .dialog-img-div {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   .dialog-img {
-    height: auto;
-    max-width: 400px;
+    width: 350px;
     object-fit: contain;
   }
 }
@@ -151,7 +160,7 @@
     height: 400px;
     width: 300px;
   }
-  
+
   .dialog-img {
     height: auto;
     max-width: 300px;
